@@ -1,0 +1,85 @@
+.contact-section {
+  position: relative;
+}
+
+.contact-card {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(135deg, rgba(13, 110, 253, 0.1), transparent 45%),
+    var(--portfolio-surface);
+  box-shadow: var(--portfolio-shadow);
+}
+
+.section-eyebrow {
+  color: var(--portfolio-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.contact-title {
+  max-width: 760px;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+}
+
+.contact-text {
+  color: var(--portfolio-muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.contact-actions {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.72);
+  color: var(--portfolio-text);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.contact-link:hover {
+  transform: translateX(4px);
+  border-color: rgba(13, 110, 253, 0.35);
+  background-color: #ffffff;
+}
+
+.contact-link i {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 2.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: 0.9rem;
+  color: var(--portfolio-primary);
+  background-color: rgba(13, 110, 253, 0.1);
+  font-size: 1.25rem;
+}
+
+.contact-link span {
+  display: grid;
+}
+
+.contact-link strong {
+  font-size: 0.95rem;
+}
+
+.contact-link small {
+  color: var(--portfolio-muted);
+}
