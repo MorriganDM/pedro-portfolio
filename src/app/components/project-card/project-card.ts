@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { Project } from '../../models/project.model';
+import { ProjectCarousel } from '../project-carousel/project-carousel';
 
 @Component({
   selector: 'app-project-card',
-  imports: [],
+  imports: [ProjectCarousel],
   templateUrl: './project-card.html',
   styleUrl: './project-card.css'
 })

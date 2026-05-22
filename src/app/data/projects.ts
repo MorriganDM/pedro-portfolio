@@ -14,6 +14,29 @@ export const PROJECTS: Project[] = [
       'Operações CRUD para gerenciamento de funcionários'
     ],
     technologies: ['ASP.NET Core', 'Angular', 'SQL Server'],
+    images: [
+      {
+        src: '/images/projects/employee-manager/01.png',
+        alt: 'Tela do Employee Manager System'
+      },
+      {
+        src: '/images/projects/employee-manager/02.png',
+        alt: 'Tela Create Employee do Employee Manager System'
+      },
+      {
+        src: '/images/projects/employee-manager/03.png',
+        alt: 'Tela Edit Employee do Employee Manager System'
+      },
+      {
+        src: '/images/projects/employee-manager/04.png',
+        alt: 'Tela SWAGGER API do Employee Manager System'
+      },
+      {
+        src: '/images/projects/employee-manager/05.png',
+        alt: 'Tela MS SQL Server do Employee Manager System'
+      }
+      
+    ],
     repositoryUrl: 'https://github.com/MorriganDM/employee-manager-system'
   },
   {
@@ -29,6 +52,12 @@ export const PROJECTS: Project[] = [
       'Organização da lógica de conversão em C#'
     ],
     technologies: ['C#', 'WPF', 'API REST'],
+    images: [
+      {
+        src: '/images/projects/currency-converter/01.png',
+        alt: 'Tela do Currency Converter WPF'
+      }
+    ],
     repositoryUrl: 'https://github.com/MorriganDM/currency-converter-wpf'
   },
   {
@@ -44,6 +73,36 @@ export const PROJECTS: Project[] = [
       'Comunicação direta com cliente para validação de entregas'
     ],
     technologies: ['Unity', 'C#', 'ScriptableObjects'],
+    images: [
+      {
+        src: '/images/projects/unity-card-combat/01.png',
+        alt: 'Sistema configurável no Inspector da Unity'
+      },
+      {
+        src: '/images/projects/unity-card-combat/02.png',
+        alt: 'Sistema configurável no Inspector da Unity'
+      },
+      {
+        src: '/images/projects/unity-card-combat/03.png',
+        alt: 'Sistema configurável no Inspector da Unity'
+      },
+      {
+        src: '/images/projects/unity-card-combat/04.png',
+        alt: 'Sistema configurável no Inspector da Unity'
+      },
+      {
+        src: '/images/projects/unity-card-combat/05.png',
+        alt: 'Sistema configurável no Inspector da Unity'
+      },
+      {
+        src: '/images/projects/unity-card-combat/06.png',
+        alt: 'Sistema configurável no Inspector da Unity'
+      },
+      {
+        src: '/images/projects/unity-card-combat/07.png',
+        alt: 'Sistema configurável no Inspector da Unity'
+      }
+    ],
     isPrivate: true
   }
 ];
