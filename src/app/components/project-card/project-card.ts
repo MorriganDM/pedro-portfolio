@@ -8,7 +8,11 @@ import { Project } from '../../models/project.model';
   styleUrl: './project-card.css'
 })
 export class ProjectCard {
-  // @Input permite que o componente pai envie um projeto para este card.
-  // O "required: true" indica que este componente precisa receber um projeto para funcionar.
   @Input({ required: true }) project!: Project;
+
+  isDetailsOpen = false;
+
+  toggleDetails(): void {
+    this.isDetailsOpen = !this.isDetailsOpen;
+  }
 }
