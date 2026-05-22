@@ -1,0 +1,74 @@
+.hero-section {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  color: var(--portfolio-primary);
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+
+.hero-title {
+  max-width: 760px;
+  font-size: clamp(2.4rem, 5vw, 4.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.hero-description {
+  max-width: 680px;
+  color: var(--portfolio-muted);
+}
+
+.hero-card {
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.86)),
+    radial-gradient(circle at top right, rgba(13, 110, 253, 0.14), transparent 12rem);
+  box-shadow: var(--portfolio-shadow);
+}
+
+.hero-card-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  background-color: var(--portfolio-border);
+}
+
+.hero-card-label {
+  color: var(--portfolio-muted);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.hero-card-line {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid var(--portfolio-border);
+}
+
+.hero-card-line strong {
+  text-align: right;
+}
+
+@media (max-width: 991px) {
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-card-line {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .hero-card-line strong {
+    text-align: left;
+  }
+}
