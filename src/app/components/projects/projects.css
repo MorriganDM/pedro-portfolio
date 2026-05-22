@@ -1,0 +1,16 @@
+.projects-section {
+  position: relative;
+}
+
+.projects-heading {
+  max-width: 760px;
+  margin-inline: auto;
+}
+
+.section-eyebrow {
+  color: var(--portfolio-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}

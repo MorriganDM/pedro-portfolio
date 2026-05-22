@@ -1,0 +1,54 @@
+.project-card {
+  overflow: hidden;
+  border: 1px solid var(--portfolio-border);
+  background-color: var(--portfolio-surface);
+}
+
+.project-card .card-body {
+  padding: 1.25rem;
+}
+
+.project-title {
+  color: var(--portfolio-text);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.project-description {
+  color: var(--portfolio-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.technology-list .badge {
+  font-weight: 700;
+}
+
+.project-details {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 1rem;
+  background-color: rgba(246, 248, 251, 0.8);
+}
+
+.project-details p {
+  color: var(--portfolio-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.project-details ul {
+  margin-bottom: 0;
+  padding-left: 1.1rem;
+}
+
+.project-details li {
+  margin-bottom: 0.4rem;
+  color: var(--portfolio-text);
+  font-size: 0.92rem;
+}
+
+.project-actions {
+  padding-top: 0.5rem;
+}
