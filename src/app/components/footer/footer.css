@@ -1,0 +1,66 @@
+.site-footer {
+  margin-top: 4rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--portfolio-border);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+}
+
+.footer-content strong {
+  color: var(--portfolio-text);
+  font-weight: 800;
+}
+
+.footer-content p {
+  color: var(--portfolio-muted);
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-links a {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--portfolio-border);
+  border-radius: 999px;
+  color: var(--portfolio-text);
+  background-color: var(--portfolio-surface);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.footer-links a:hover {
+  transform: translateY(-2px);
+  color: var(--portfolio-primary);
+  border-color: rgba(13, 110, 253, 0.35);
+}
+
+.footer-bottom {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--portfolio-border);
+  color: var(--portfolio-muted);
+  text-align: center;
+}
+
+@media (max-width: 576px) {
+  .footer-content {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
