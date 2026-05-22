@@ -1,1 +1,52 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+  --portfolio-bg: #f6f8fb;
+  --portfolio-surface: #ffffff;
+  --portfolio-text: #18212f;
+  --portfolio-muted: #5f6f86;
+  --portfolio-primary: #0d6efd;
+  --portfolio-border: #dbe3ef;
+  --portfolio-shadow: 0 12px 30px rgba(24, 33, 47, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(13, 110, 253, 0.08), transparent 32rem),
+    linear-gradient(180deg, #ffffff 0%, var(--portfolio-bg) 100%);
+  color: var(--portfolio-text);
+}
+
+section {
+  scroll-margin-top: 5rem;
+}
+
+.card {
+  border-color: var(--portfolio-border);
+  border-radius: 1rem;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--portfolio-shadow);
+  border-color: rgba(13, 110, 253, 0.25);
+}
+
+.btn {
+  border-radius: 999px;
+}
+
+.badge {
+  border-radius: 999px;
+  padding: 0.45rem 0.65rem;
+}
+
+.text-secondary {
+  color: var(--portfolio-muted) !important;
+}
