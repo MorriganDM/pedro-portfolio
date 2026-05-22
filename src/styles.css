@@ -50,3 +50,26 @@ section {
 .text-secondary {
   color: var(--portfolio-muted) !important;
 }
+
+main > section {
+  padding-block: clamp(3rem, 7vw, 5.5rem);
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+img {
+  max-width: 100%;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
