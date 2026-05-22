@@ -49,22 +49,37 @@
       </div>
     }
 
-    <div class="mt-auto">
-      @if (project.repositoryUrl) {
-        <a
-          class="btn btn-sm btn-outline-dark"
-          [href]="project.repositoryUrl"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <i class="bi bi-github"></i>
-          Repositório
-        </a>
-      } @else if (project.isPrivate) {
-        <button class="btn btn-sm btn-outline-secondary" type="button">
-          Código privado
-        </button>
-      }
-    </div>
+<div class="mt-auto d-flex flex-wrap gap-2">
+  @if (project.liveUrl) {
+    <a
+      class="btn btn-sm btn-primary"
+      [href]="project.liveUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="bi bi-box-arrow-up-right"></i>
+      Ver demo
+    </a>
+  }
+
+  @if (project.repositoryUrl) {
+    <a
+      class="btn btn-sm btn-outline-dark"
+      [href]="project.repositoryUrl"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <i class="bi bi-github"></i>
+      Repositório
+    </a>
+  }
+
+  @if (project.isPrivate) {
+    <button class="btn btn-sm btn-outline-secondary" type="button">
+      <i class="bi bi-lock"></i>
+      Projeto privado
+    </button>
+  }
+</div>
   </div>
 </article>
