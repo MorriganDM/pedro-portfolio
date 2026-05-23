@@ -56,6 +56,10 @@ export const PROJECTS: Project[] = [
       {
         src: 'images/projects/currency-converter/01.png',
         alt: 'Tela do Currency Converter WPF'
+      },
+      {
+        src: 'images/projects/currency-converter/02.png',
+        alt: 'Tela do Currency Converter WPF com dropdown aberto'
       }
     ],
     repositoryUrl: 'https://github.com/MorriganDM/currency-converter-wpf'
