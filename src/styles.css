@@ -27,13 +27,11 @@ section {
   border-color: var(--portfolio-border);
   border-radius: 1rem;
   transition:
-    transform 0.2s ease,
     box-shadow 0.2s ease,
     border-color 0.2s ease;
 }
 
 .card:hover {
-  transform: translateY(-4px);
   box-shadow: var(--portfolio-shadow);
   border-color: rgba(13, 110, 253, 0.25);
 }

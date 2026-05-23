@@ -7,6 +7,14 @@
   margin-inline: auto;
 }
 
+.projects-grid {
+  align-items: flex-start;
+}
+
+.projects-grid app-project-card {
+  display: block;
+}
+
 .section-eyebrow {
   color: var(--portfolio-primary);
   font-size: 0.8rem;

@@ -1,15 +1,27 @@
 <div class="project-carousel mb-3">
-  @if (currentImage) {
-    <div class="carousel-image-wrapper">
-      <img
-        class="img-fluid rounded border"
-        [src]="currentImage.src"
-        [alt]="currentImage.alt"
-      />
-    </div>
+  @if (currentImage; as image) {
+    <button
+      class="carousel-image-button"
+      type="button"
+      (click)="openZoom()"
+      aria-label="Ampliar imagem do projeto"
+    >
+      <span class="carousel-image-wrapper">
+        <img
+          class="img-fluid"
+          [src]="image.src"
+          [alt]="image.alt"
+        />
+      </span>
+
+      <span class="zoom-hint">
+        <i class="bi bi-zoom-in"></i>
+        Ampliar
+      </span>
+    </button>
 
     @if (images.length > 1) {
-      <div class="d-flex justify-content-between align-items-center mt-2">
+      <div class="carousel-controls d-flex justify-content-between align-items-center mt-2">
         <button
           class="btn btn-sm btn-outline-secondary"
           type="button"
@@ -40,3 +52,62 @@
     </div>
   }
 </div>
+
+@if (isZoomOpen) {
+  @if (currentImage; as zoomImage) {
+    <div
+      class="zoom-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Visualização ampliada da imagem do projeto"
+      (click)="closeZoom()"
+    >
+      <div class="zoom-content" (click)="$event.stopPropagation()">
+        <div class="zoom-header">
+          <span class="zoom-counter">
+            {{ currentIndex + 1 }} / {{ images.length }}
+          </span>
+
+          <button
+            class="btn btn-sm btn-outline-secondary"
+            type="button"
+            (click)="closeZoom()"
+            aria-label="Fechar visualização ampliada"
+          >
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <div class="zoom-image-frame">
+          <img
+            class="zoom-image"
+            [src]="zoomImage.src"
+            [alt]="zoomImage.alt"
+          />
+        </div>
+
+        @if (images.length > 1) {
+          <div class="zoom-controls" (click)="$event.stopPropagation()">
+            <button
+              class="btn btn-outline-secondary"
+              type="button"
+              (click)="previousImage(); $event.stopPropagation()"
+            >
+              <i class="bi bi-chevron-left"></i>
+              Anterior
+            </button>
+
+            <button
+              class="btn btn-primary"
+              type="button"
+              (click)="nextImage(); $event.stopPropagation()"
+            >
+              Próxima
+              <i class="bi bi-chevron-right"></i>
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  }
+}
