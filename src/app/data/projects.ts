@@ -2,6 +2,60 @@ import { Project } from '../models/project.model';
 
 export const PROJECTS: Project[] = [
   {
+    title: 'Service Orders App',
+    shortDescription:
+      'Sistema full stack de ordens de serviço com Flutter, FastAPI, PostgreSQL e Docker.',
+    detailedDescription:
+      'Mini sistema corporativo de ordens de serviço desenvolvido como estudo full stack. Possui backend em FastAPI com PostgreSQL, API REST documentada com Swagger, frontend em Flutter, filtros por status, cadastro, edição, detalhes, atualização de status, exclusão segura e execução com Docker Compose.',
+    highlights: [
+      'Frontend em Flutter com listagem, filtros, formulários e detalhes',
+      'API REST em FastAPI documentada com Swagger/OpenAPI',
+      'Persistência com PostgreSQL, SQLAlchemy e validação com Pydantic',
+      'Controle de exclusão permitido apenas para ordens concluídas ou canceladas',
+      'Ambiente de execução opcional com Docker Compose'
+    ],
+    technologies: [
+      'Flutter',
+      'Dart',
+      'Python',
+      'FastAPI',
+      'PostgreSQL',
+      'SQLAlchemy',
+      'Pydantic',
+      'Docker',
+      'Docker Compose',
+      'API REST',
+      'Swagger/OpenAPI'
+    ],
+    images: [
+      {
+        src: 'images/projects/service-orders/flutter-list.png',
+        alt: 'Listagem de ordens de serviço no aplicativo Flutter'
+      },
+      {
+        src: 'images/projects/service-orders/create-order.png',
+        alt: 'Cadastro de ordem de serviço'
+      },
+      {
+        src: 'images/projects/service-orders/edit-order.png',
+        alt: 'Edição de ordem de serviço'
+      },
+      {
+        src: 'images/projects/service-orders/details-dialog.png',
+        alt: 'Modal de detalhes de uma ordem de serviço'
+      },
+      {
+        src: 'images/projects/service-orders/delete-confirmation.png',
+        alt: 'Confirmação de exclusão de ordem de serviço'
+      },
+      {
+        src: 'images/projects/service-orders/swagger.png',
+        alt: 'Documentação Swagger da API REST'
+      }
+    ],
+    repositoryUrl: 'https://github.com/MorriganDM/service-order-app'
+  },
+  {
     title: 'Employee Manager System',
     shortDescription:
       'Sistema full-stack para gerenciamento de funcionários, desenvolvido com ASP.NET Core, Angular e SQL Server.',
@@ -38,6 +92,22 @@ export const PROJECTS: Project[] = [
       
     ],
     repositoryUrl: 'https://github.com/MorriganDM/employee-manager-system'
+  },
+  {
+    title: 'Portfolio Website',
+    shortDescription:
+      'Site pessoal e portfólio de projetos desenvolvido em Angular.',
+    detailedDescription:
+      'Site pessoal desenvolvido em Angular para apresentar projetos, tecnologias, trajetória profissional e links de contato. O projeto centraliza meu portfólio e também serve como exercício prático de frontend, componentização, organização de dados e manutenção de uma aplicação web pessoal.',
+    highlights: [
+      'Interface responsiva construída com Angular e TypeScript',
+      'Cards de projetos com carrossel de imagens e visualização detalhada',
+      'Organização de conteúdo em componentes e dados reutilizáveis',
+      'Versionamento e publicação do código com Git e GitHub'
+    ],
+    technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Git', 'GitHub'],
+    images: [],
+    repositoryUrl: 'https://github.com/MorriganDM/pedro-portfolio.git'
   },
   {
     title: 'Currency Converter WPF',
