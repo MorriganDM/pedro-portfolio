@@ -106,7 +106,28 @@ export const PROJECTS: Project[] = [
       'Versionamento e publicação do código com Git e GitHub'
     ],
     technologies: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Git', 'GitHub'],
-    images: [],
+    images: [
+      {
+        src: 'images/projects/portfolio/PP1.png',
+        alt: 'Página inicial do portfólio'
+      },
+      {
+        src: 'images/projects/portfolio/PP2.png',
+        alt: 'Seção sobre mim do portfólio'
+      },
+      {
+        src: 'images/projects/portfolio/PP3.png',
+        alt: 'Seção de habilidades do portfólio'
+      },
+      {
+        src: 'images/projects/portfolio/PP4.png',
+        alt: 'Seção de projetos do portfólio'
+      },
+      {
+        src: 'images/projects/portfolio/PP5.png',
+        alt: 'Seção de contato do portfólio'
+      }
+    ],
     repositoryUrl: 'https://github.com/MorriganDM/pedro-portfolio.git'
   },
   {

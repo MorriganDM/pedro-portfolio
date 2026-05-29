@@ -6,6 +6,28 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 This site showcases recent work, including **Service Orders App**, a full-stack Flutter, FastAPI, PostgreSQL and Docker project, alongside this portfolio website and other projects.
 
+## Screenshots
+
+### Página inicial
+
+<img src="public/images/projects/portfolio/PP1.png" alt="Página inicial do portfólio" width="900">
+
+### Sobre mim
+
+<img src="public/images/projects/portfolio/PP2.png" alt="Seção sobre mim do portfólio" width="900">
+
+### Habilidades
+
+<img src="public/images/projects/portfolio/PP3.png" alt="Seção de habilidades do portfólio" width="900">
+
+### Projetos
+
+<img src="public/images/projects/portfolio/PP4.png" alt="Seção de projetos do portfólio" width="900">
+
+### Contato
+
+<img src="public/images/projects/portfolio/PP5.png" alt="Seção de contato do portfólio" width="900">
+
 ## Development server
 
 To start a local development server, run:
