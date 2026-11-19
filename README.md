@@ -1,102 +1,108 @@
-# PedroPortfolio
+# Pedro Nascimento — Developer Portfolio
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.12.
+## Project Overview
 
-## Portfolio projects
+A bilingual portfolio for Brazilian and international recruiters, featuring Pedro
+Nascimento's professional experience, technical skills, client work, and personal
+projects. Brazilian Portuguese is the default language.
 
-This site showcases recent work, including **Service Orders App**, a full-stack Flutter, FastAPI, PostgreSQL and Docker project, alongside this portfolio website and other projects.
+## Tech Stack
 
-## Screenshots
+- Angular 21 with standalone components and signals
+- TypeScript, HTML, CSS, Bootstrap, and Bootstrap Icons
+- Angular CLI for development and production builds
+- Vitest and jsdom for unit and component tests
+- GitHub Pages and `angular-cli-ghpages` for static publishing
 
-### Página inicial
+## Architecture
 
-<img src="public/images/projects/portfolio/PP1.png" alt="Página inicial do portfólio" width="900">
+The root component composes the header, hero, projects, experience, skills, contact,
+and footer. Project cards receive typed project data and delegate image navigation
+and zoom to the carousel component. The Portuguese catalog defines project order,
+technologies, image paths, links, and visibility. The English catalog supplies
+translated text and image descriptions while reusing the original assets and URLs.
 
-### Sobre mim
+## Internationalization
 
-<img src="public/images/projects/portfolio/PP2.png" alt="Seção sobre mim do portfólio" width="900">
+| Language | Local development | GitHub Pages path |
+| --- | --- | --- |
+| Brazilian Portuguese | [`/`](http://localhost:4200/) | `/pedro-portfolio/` |
+| English | [`/en/`](http://localhost:4200/en/) | `/pedro-portfolio/en/` |
 
-### Habilidades
+`src/app/i18n/messages.ts` contains the typed UI dictionaries.
+`src/app/data/projects.en.ts` supplies English project copy.
+`LanguageService` reads the language from the URL through Angular's `Location`
+and exposes it as a signal. The header uses ordinary links for the two language
+URLs and switches them in place on standard activation, retaining the query and
+section fragment when present. Browser history also updates the displayed language.
+The page updates its document language, title, description, and canonical URL
+when the language changes.
 
-<img src="public/images/projects/portfolio/PP3.png" alt="Seção de habilidades do portfólio" width="900">
+The build emits `index.html` and `en/index.html` with localized metadata and
+reciprocal `hreflang` links. Both files use the same Angular bundle. Direct access
+and reload work on static hosting because each language path has its own HTML
+entry. The portfolio content renders in the browser and the same screenshot files
+are used in both versions.
 
-### Projetos
+## Features
 
-<img src="public/images/projects/portfolio/PP4.png" alt="Seção de projetos do portfólio" width="900">
+- Professional introduction, experience, skills, and contact links
+- Six project cards with technical details and links to live sites and repositories where available
+- Image carousels with wraparound navigation, keyboard controls, and zoom dialogs
+- Responsive layouts and a keyboard-accessible language switch with an active-language indicator
 
-### Contato
+## Project Structure
 
-<img src="public/images/projects/portfolio/PP5.png" alt="Seção de contato do portfólio" width="900">
+```text
+public/images/projects/      Project screenshots and portfolio captures
+scripts/                     Build step that writes localized HTML entries
+src/app/components/          Standalone sections, project cards, and carousels
+src/app/data/                Project catalog and English project copy
+src/app/i18n/                UI dictionaries, language service, metadata, and tests
+src/app/models/              Project and image types
+src/styles.css               Shared theme and responsive styles
+```
 
-## Local environment
+## Getting Started
 
-Use Node.js **24.22.1** (recorded in `.nvmrc`) and npm **11.13.0** (recorded in
-`package.json`). Angular 21 supports Node.js `^20.19.0`, `^22.12.0` or `^24.0.0`;
-Node.js 26 is outside its supported range. See the
-[Angular compatibility table](https://angular.dev/reference/versions).
-
-Select the Node.js version with your version manager before installing dependencies.
-For nvm-windows, run `nvm install 24.22.1` and `nvm use 24.22.1`.
-Check `node --version` and `npm --version`; if needed, select the npm version with
-`npm install --global npm@11.13.0`.
-
-Install the exact dependency versions from the existing lockfile:
+Use Node.js **24.22.1** (pinned in `.nvmrc`) and npm **11.13.0** (declared in
+`package.json`). Review the [Angular compatibility table](https://angular.dev/reference/versions)
+if you use a different Node.js version.
 
 ```bash
 npm ci
-```
-
-The application uses standalone Angular components, Bootstrap, and Vitest. No backend
-service or environment variables are required for local development.
-
-## Development server
-
-To start a local development server, run:
-
-```bash
 npm start
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Open [`http://localhost:4200/`](http://localhost:4200/) for Portuguese or
+[`http://localhost:4200/en/`](http://localhost:4200/en/) for English. No backend
+or environment variables are required for local development.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Testing
 
 ```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+npm test -- --watch=false
 npm run build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+The first command runs the test suite once. The second writes the production
+output, including both language entry files, to `dist/pedro-portfolio/browser/`.
 
-## Running unit tests
+## Deployment
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+To build using the same base path as GitHub Pages without publishing:
 
 ```bash
-npm test
+npm run build -- --configuration production --base-href=/pedro-portfolio/
 ```
 
-For a single run without watch mode, use `npm test -- --watch=false`.
+The existing `npm run deploy` command runs that build and publishes its output
+to the `gh-pages` branch with `angular-cli-ghpages`. Both HTML entries keep
+the `/pedro-portfolio/` base path so that Angular bundles and images resolve from
+the project root, even on `/pedro-portfolio/en/`. Exact language URLs work
+without relying on a custom 404 redirect.
 
-## Running end-to-end tests
+## Live Website
 
-No end-to-end runner or `e2e` target is configured in this repository.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+[Pedro Nascimento — Developer Portfolio](https://morrigandm.github.io/pedro-portfolio/).
+The English path is available once the bilingual build is published.

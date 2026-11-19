@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { LanguageService } from '../../i18n/language.service';
 
 @Component({
   selector: 'app-contact',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })
-export class Contact {}
+export class Contact {
+  private readonly language = inject(LanguageService);
+  protected readonly copy = computed(() => this.language.copy().contact);
+}

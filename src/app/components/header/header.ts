@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
+import { LanguageService } from '../../i18n/language.service';
 
 @Component({
   selector: 'app-header',
@@ -6,4 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {}
+export class Header {
+  protected readonly language = inject(LanguageService);
+  protected readonly copy = computed(() => this.language.copy().header);
+}

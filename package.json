@@ -5,9 +5,10 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "postbuild": "node scripts/write-language-entries.mjs",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --configuration production --base-href=/pedro-portfolio/ && angular-cli-ghpages --dir=dist/pedro-portfolio/browser"
+    "deploy": "npm run build -- --configuration production --base-href=/pedro-portfolio/ && angular-cli-ghpages --dir=dist/pedro-portfolio/browser"
   },
   "private": true,
   "packageManager": "npm@11.13.0",

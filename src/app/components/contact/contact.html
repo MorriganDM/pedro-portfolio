@@ -3,17 +3,15 @@
     <div class="row g-4 align-items-center">
       <div class="col-lg-7">
         <p class="section-eyebrow mb-2">
-          Contato
+          {{ copy().eyebrow }}
         </p>
 
         <h2 class="contact-title fw-bold mb-3">
-          Vamos conversar sobre oportunidades, projetos ou colaboração?
+          {{ copy().heading }}
         </h2>
 
         <p class="contact-text mb-0">
-          Estou aberto a oportunidades como desenvolvedor júnior, especialmente
-          com C#, .NET, Angular, SQL Server, aplicações web, sistemas desktop e
-          projetos Unity/C#.
+          {{ copy().description }}
         </p>
       </div>
 
@@ -29,7 +27,7 @@
 
             <span>
               <strong>GitHub</strong>
-              <small>Ver repositórios</small>
+              <small>{{ copy().repositories }}</small>
             </span>
           </a>
 
@@ -43,7 +41,7 @@
 
             <span>
               <strong>LinkedIn</strong>
-              <small>Conectar profissionalmente</small>
+              <small>{{ copy().connect }}</small>
             </span>
           </a>
 
@@ -54,8 +52,8 @@
             <i aria-hidden="true" class="bi bi-envelope"></i>
 
             <span>
-              <strong>E-mail</strong>
-              <small>Enviar mensagem direta</small>
+              <strong>{{ copy().email }}</strong>
+              <small>{{ copy().message }}</small>
             </span>
           </a>
         </div>

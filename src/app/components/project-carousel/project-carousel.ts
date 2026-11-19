@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, inject, Input } from '@angular/core';
+import { LanguageService } from '../../i18n/language.service';
 import { ProjectImage } from '../../models/project.model';
 
 @Component({
@@ -8,6 +9,9 @@ import { ProjectImage } from '../../models/project.model';
   styleUrl: './project-carousel.css'
 })
 export class ProjectCarousel {
+  private readonly language = inject(LanguageService);
+  protected readonly copy = computed(() => this.language.copy().carousel);
+
   @Input({ required: true }) images: ProjectImage[] = [];
 
   currentIndex = 0;

@@ -1,15 +1,15 @@
 <section id="projects" class="container section-space section-divider">
   <div class="section-heading">
-    <p class="section-eyebrow mb-2">Portfólio</p>
-    <h2>Projetos em destaque</h2>
+    <p class="section-eyebrow mb-2">{{ copy().eyebrow }}</p>
+    <h2>{{ copy().heading }}</h2>
     <p class="text-secondary">
-      Projetos para clientes e estudos de desenvolvimento web, desktop e jogos.
+      {{ copy().description }}
     </p>
   </div>
 
   <div class="projects-grid">
-    @for (project of projects; track project.title) {
-      <app-project-card [project]="project"></app-project-card>
+    @for (project of projects(); track project.key) {
+      <app-project-card [project]="project.value"></app-project-card>
     }
   </div>
 </section>

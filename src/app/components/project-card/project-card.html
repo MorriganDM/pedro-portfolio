@@ -12,24 +12,24 @@
   <div class="project-card-footer">
     <button class="btn btn-sm btn-outline-primary" type="button" aria-haspopup="dialog"
       (click)="details.showModal()">
-      Ver detalhes <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+      {{ copy().viewDetails }} <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
     </button>
 
   </div>
 
-  <dialog #details class="portfolio-dialog" [attr.aria-label]="'Detalhes de ' + project.title"
+  <dialog #details class="portfolio-dialog" [attr.aria-label]="copy().detailsFor + ' ' + project.title"
     (click)="$event.target === details && details.close()">
     <div class="project-details-content">
       <div class="project-details-header">
         <h3>{{ project.title }}</h3>
         <button class="btn btn-sm btn-outline-secondary" type="button" (click)="details.close()"
-          aria-label="Fechar detalhes do projeto" autofocus>
+          [attr.aria-label]="copy().closeDetails" autofocus>
           <i class="bi bi-x-lg" aria-hidden="true"></i>
         </button>
       </div>
 
       <p>{{ project.detailedDescription }}</p>
-      <h4 class="h6 fw-bold">Destaques técnicos</h4>
+      <h4 class="h6 fw-bold">{{ copy().highlights }}</h4>
       <ul>
         @for (highlight of project.highlights; track highlight) {
           <li>{{ highlight }}</li>
@@ -39,7 +39,7 @@
       <div class="project-actions d-flex flex-wrap gap-2 align-items-center">
         @if (project.liveUrl) {
           <a class="btn btn-sm btn-primary" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer">
-            {{ project.isPrivate ? 'Acessar site' : 'Ver demo' }}
+            {{ project.isPrivate ? copy().visitSite : copy().viewDemo }}
             <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
           </a>
         }
@@ -47,14 +47,14 @@
         @if (project.repositoryUrl && !project.isPrivate) {
           <a class="btn btn-sm btn-outline-dark" [href]="project.repositoryUrl"
             target="_blank" rel="noopener noreferrer">
-            <i class="bi bi-github" aria-hidden="true"></i> Repositório
+            <i class="bi bi-github" aria-hidden="true"></i> {{ copy().repository }}
           </a>
         }
 
         @if (project.isPrivate) {
           <span class="small text-secondary">
             <i class="bi bi-lock" aria-hidden="true"></i>
-            Projeto para cliente — código-fonte privado
+            {{ copy().privateSource }}
           </span>
         }
       </div>

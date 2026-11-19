@@ -1,8 +1,8 @@
-<div class="project-carousel" role="group" aria-label="Imagens do projeto"
+<div class="project-carousel" role="group" [attr.aria-label]="copy().images"
   (keydown)="navigate($event)">
   @if (currentImage; as image) {
     <button class="carousel-image-button" type="button" (click)="openZoom(zoom)"
-      aria-label="Ampliar imagem do projeto" aria-haspopup="dialog">
+      [attr.aria-label]="copy().enlarge" aria-haspopup="dialog">
       <img loading="lazy" decoding="async" [src]="image.src" [alt]="image.alt" />
       <span class="zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
     </button>
@@ -10,27 +10,27 @@
     @if (images.length > 1) {
       <div class="carousel-controls">
         <button class="btn btn-sm btn-outline-secondary" type="button" (click)="previousImage()"
-          aria-label="Imagem anterior">
+          [attr.aria-label]="copy().previousImage">
           <i class="bi bi-chevron-left" aria-hidden="true"></i>
         </button>
         <span class="carousel-counter" aria-live="polite" aria-atomic="true">
-          <span class="visually-hidden">Imagem </span>{{ currentIndex + 1 }} / {{ images.length }}
+          <span class="visually-hidden">{{ copy().image }} </span>{{ currentIndex + 1 }} / {{ images.length }}
         </span>
         <button class="btn btn-sm btn-outline-secondary" type="button" (click)="nextImage()"
-          aria-label="Próxima imagem">
+          [attr.aria-label]="copy().nextImage">
           <i class="bi bi-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
     }
 
     <dialog #zoom class="portfolio-dialog zoom-dialog"
-      aria-label="Visualização ampliada da imagem do projeto"
+      [attr.aria-label]="copy().zoom"
       (click)="$event.target === zoom && zoom.close()" (close)="isZoomOpen = false">
       @if (isZoomOpen) {
         <div class="zoom-content">
           <div class="zoom-header">
             <span class="carousel-counter" aria-live="polite" aria-atomic="true">
-              <span class="visually-hidden">Imagem </span>{{ currentIndex + 1 }} / {{ images.length }}
+              <span class="visually-hidden">{{ copy().image }} </span>{{ currentIndex + 1 }} / {{ images.length }}
             </span>
           </div>
           <img class="zoom-image" [src]="image.src" [alt]="image.alt" />
@@ -38,21 +38,21 @@
           @if (images.length > 1) {
             <div class="zoom-controls">
               <button class="btn btn-outline-secondary" type="button" (click)="previousImage()">
-                <i class="bi bi-chevron-left" aria-hidden="true"></i> Anterior
+                <i class="bi bi-chevron-left" aria-hidden="true"></i> {{ copy().previous }}
               </button>
               <button class="btn btn-outline-secondary" type="button" (click)="nextImage()">
-                Próxima <i class="bi bi-chevron-right" aria-hidden="true"></i>
+                {{ copy().next }} <i class="bi bi-chevron-right" aria-hidden="true"></i>
               </button>
             </div>
           }
         </div>
       }
       <button class="btn btn-sm btn-outline-secondary zoom-close" type="button"
-        (click)="zoom.close()" aria-label="Fechar visualização ampliada" autofocus>
+        (click)="zoom.close()" [attr.aria-label]="copy().closeZoom" autofocus>
         <i class="bi bi-x-lg" aria-hidden="true"></i>
       </button>
     </dialog>
   } @else {
-    <p class="carousel-placeholder text-secondary">Imagens ainda indisponíveis.</p>
+    <p class="carousel-placeholder text-secondary">{{ copy().unavailable }}</p>
   }
 </div>

@@ -2,15 +2,14 @@
   <div class="hero-layout">
     <div>
       <p class="section-eyebrow mb-0">Pedro Nascimento</p>
-      <h1 class="hero-title" id="hero-title">Desenvolvedor <span>Full Stack</span></h1>
+      <h1 class="hero-title" id="hero-title">{{ copy().headingLead }} <span>{{ copy().headingAccent }}</span></h1>
       <p class="hero-description">
-        Trabalho no desenvolvimento e na manutenção de aplicações para ERP,
-        com Python e FastAPI no backend, Flutter nas interfaces e integrações via APIs REST.
+        {{ copy().description }}
       </p>
 
       <div class="hero-actions">
-        <a class="btn btn-primary px-3" href="#projects">
-          Ver projetos <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
+        <a class="btn btn-primary px-3" [href]="language.sectionHref('projects')">
+          {{ copy().projects }} <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
         </a>
         <a class="btn btn-outline-dark px-3" href="https://github.com/MorriganDM"
           target="_blank" rel="noopener noreferrer">
@@ -26,18 +25,18 @@
     <aside class="hero-card" aria-labelledby="current-employer">
       <div class="hero-card-top">
         <span class="hero-card-icon"><i class="bi bi-briefcase" aria-hidden="true"></i></span>
-        <p class="hero-card-label">Experiência atual</p>
+        <p class="hero-card-label">{{ copy().currentExperience }}</p>
       </div>
       <h2 id="current-employer">PrintPress Soluções</h2>
-      <p class="hero-tenure">Desde <time datetime="2026-06">junho de 2026</time></p>
-      <ul class="hero-stack list-unstyled mb-0" aria-label="Tecnologias no trabalho atual">
+      <p class="hero-tenure">{{ copy().since }} <time datetime="2026-06">{{ copy().june2026 }}</time></p>
+      <ul class="hero-stack list-unstyled mb-0" [attr.aria-label]="copy().workTechnologies">
         <li class="tech-tag">Python</li>
         <li class="tech-tag">FastAPI</li>
         <li class="tech-tag">Flutter</li>
-        <li class="tech-tag">APIs REST</li>
+        <li class="tech-tag">{{ copy().restApis }}</li>
       </ul>
-      <a class="hero-card-link" href="#about">
-        Ver trajetória <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
+      <a class="hero-card-link" [href]="language.sectionHref('about')">
+        {{ copy().experience }} <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
       </a>
     </aside>
   </div>
