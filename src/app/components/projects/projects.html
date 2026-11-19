@@ -1,20 +1,15 @@
-<section id="projects" class="projects-section container py-5">
-  <div class="projects-heading text-center mb-5">
+<section id="projects" class="container section-space section-divider">
+  <div class="section-heading">
     <p class="section-eyebrow mb-2">Portfólio</p>
-
-    <h2 class="fw-bold">Projetos em destaque</h2>
-
+    <h2>Projetos em destaque</h2>
     <p class="text-secondary">
-      Alguns projetos que demonstram minha experiência prática com desenvolvimento web,
-      desktop e sistemas interativos em Unity.
+      Projetos para clientes e estudos de desenvolvimento web, desktop e jogos.
     </p>
   </div>
 
-  <div class="row g-4 align-items-start">
+  <div class="projects-grid">
     @for (project of projects; track project.title) {
-      <div class="col-md-6 col-xl-4">
-        <app-project-card [project]="project"></app-project-card>
-      </div>
+      <app-project-card [project]="project"></app-project-card>
     }
   </div>
 </section>

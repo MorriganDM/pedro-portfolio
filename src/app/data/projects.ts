@@ -145,23 +145,23 @@ export const PROJECTS: Project[] = [
     images: [
       {
         src: 'images/projects/portfolio/PP1.png',
-        alt: 'Página inicial do portfólio'
+        alt: 'Apresentação de Pedro Nascimento com destaque para sua atuação na PrintPress Soluções'
       },
       {
         src: 'images/projects/portfolio/PP2.png',
-        alt: 'Seção sobre mim do portfólio'
+        alt: 'Trajetória profissional na PrintPress Soluções e em Unity/C#, com formação, idiomas e estudos'
       },
       {
         src: 'images/projects/portfolio/PP3.png',
-        alt: 'Seção de habilidades do portfólio'
+        alt: 'Categorias de habilidades: backend, APIs e dados, web e mobile, jogos, infraestrutura e ferramentas'
       },
       {
         src: 'images/projects/portfolio/PP4.png',
-        alt: 'Seção de projetos do portfólio'
+        alt: 'Cards e carrosséis de Ponto Cego, Service Orders App e Employee Manager System'
       },
       {
         src: 'images/projects/portfolio/PP5.png',
-        alt: 'Seção de contato do portfólio'
+        alt: 'Seção de contato com links para GitHub, LinkedIn e e-mail'
       }
     ],
     repositoryUrl: 'https://github.com/MorriganDM/pedro-portfolio.git'

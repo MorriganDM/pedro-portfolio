@@ -1,100 +1,63 @@
-<article class="project-card card">
-  <div class="card-body">
-    <h3 class="project-title h5 text-center mb-3">
-      {{ project.title }}
-    </h3>
+<article class="project-card">
+  <h3 class="project-title">{{ project.title }}</h3>
+  <app-project-carousel [images]="project.images"></app-project-carousel>
+  <p class="project-description">{{ project.shortDescription }}</p>
 
-    <app-project-carousel [images]="project.images"></app-project-carousel>
-
-    <p class="project-description">
-      {{ project.shortDescription }}
-    </p>
-
-    <div class="technology-list d-flex flex-wrap gap-2 mb-3">
-      @for (technology of project.technologies; track technology) {
-        <span class="badge text-bg-light border">
-          {{ technology }}
-        </span>
-      }
-    </div>
-
-    <div class="project-card-footer">
-      <button
-        class="project-details-toggle btn btn-outline-primary w-100"
-        type="button"
-        (click)="toggleDetails()"
-        [attr.aria-expanded]="isDetailsOpen"
-      >
-        Ver detalhes
-      </button>
-    </div>
+  <div class="technology-list">
+    @for (technology of project.technologies; track technology) {
+      <span class="tech-tag">{{ technology }}</span>
+    }
   </div>
 
-  @if (isDetailsOpen) {
-    <div class="project-details-overlay">
-      <div class="project-details-panel">
-        <div class="project-details-header">
-          <h4 class="h6 fw-bold mb-0">
-            Detalhes do projeto
-          </h4>
+  <div class="project-card-footer">
+    <button class="btn btn-sm btn-outline-primary" type="button" aria-haspopup="dialog"
+      (click)="details.showModal()">
+      Ver detalhes <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
+    </button>
 
-          <button
-            class="btn btn-sm btn-outline-secondary"
-            type="button"
-            (click)="toggleDetails()"
-            aria-label="Fechar detalhes do projeto"
-          >
-            <i class="bi bi-x-lg"></i>
-          </button>
-        </div>
+  </div>
 
-        <p>
-          {{ project.detailedDescription }}
-        </p>
+  <dialog #details class="portfolio-dialog" [attr.aria-label]="'Detalhes de ' + project.title"
+    (click)="$event.target === details && details.close()">
+    <div class="project-details-content">
+      <div class="project-details-header">
+        <h3>{{ project.title }}</h3>
+        <button class="btn btn-sm btn-outline-secondary" type="button" (click)="details.close()"
+          aria-label="Fechar detalhes do projeto" autofocus>
+          <i class="bi bi-x-lg" aria-hidden="true"></i>
+        </button>
+      </div>
 
-        <h5 class="h6 fw-bold">
-          Destaques técnicos
-        </h5>
+      <p>{{ project.detailedDescription }}</p>
+      <h4 class="h6 fw-bold">Destaques técnicos</h4>
+      <ul>
+        @for (highlight of project.highlights; track highlight) {
+          <li>{{ highlight }}</li>
+        }
+      </ul>
 
-        <ul>
-          @for (highlight of project.highlights; track highlight) {
-            <li>{{ highlight }}</li>
-          }
-        </ul>
+      <div class="project-actions d-flex flex-wrap gap-2 align-items-center">
+        @if (project.liveUrl) {
+          <a class="btn btn-sm btn-primary" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer">
+            {{ project.isPrivate ? 'Acessar site' : 'Ver demo' }}
+            <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
+          </a>
+        }
 
-        <div class="project-actions d-flex flex-wrap gap-2">
-          @if (project.liveUrl) {
-            <a
-              class="btn btn-sm btn-primary"
-              [href]="project.liveUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="bi bi-box-arrow-up-right"></i>
-              {{ project.isPrivate ? 'Acessar site' : 'Ver demo' }}
-            </a>
-          }
+        @if (project.repositoryUrl && !project.isPrivate) {
+          <a class="btn btn-sm btn-outline-dark" [href]="project.repositoryUrl"
+            target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-github" aria-hidden="true"></i> Repositório
+          </a>
+        }
 
-          @if (project.repositoryUrl && !project.isPrivate) {
-            <a
-              class="btn btn-sm btn-outline-dark"
-              [href]="project.repositoryUrl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <i class="bi bi-github"></i>
-              Repositório
-            </a>
-          }
-
-          @if (project.isPrivate) {
-            <span class="small text-secondary align-self-center">
-              <i class="bi bi-lock" aria-hidden="true"></i>
-              Projeto para cliente — código-fonte privado
-            </span>
-          }
-        </div>
+        @if (project.isPrivate) {
+          <span class="small text-secondary">
+            <i class="bi bi-lock" aria-hidden="true"></i>
+            Projeto para cliente — código-fonte privado
+          </span>
+        }
       </div>
     </div>
-  }
+  </dialog>
 </article>
