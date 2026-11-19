@@ -1,24 +1,11 @@
-.projects-section {
-  position: relative;
-}
-
-.projects-heading {
-  max-width: 760px;
-  margin-inline: auto;
-}
-
 .projects-grid {
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
-
-.projects-grid app-project-card {
-  display: block;
+@media (max-width: 1080px) {
+  .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-
-.section-eyebrow {
-  color: var(--portfolio-primary);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+@media (max-width: 650px) {
+  .projects-grid { grid-template-columns: minmax(0, 1fr); }
 }

@@ -10,10 +10,4 @@ import { ProjectCarousel } from '../project-carousel/project-carousel';
 })
 export class ProjectCard {
   @Input({ required: true }) project!: Project;
-
-  isDetailsOpen = false;
-
-  toggleDetails(): void {
-    this.isDetailsOpen = !this.isDetailsOpen;
-  }
 }

@@ -1,113 +1,58 @@
-<div class="project-carousel mb-3">
+<div class="project-carousel" role="group" aria-label="Imagens do projeto"
+  (keydown)="navigate($event)">
   @if (currentImage; as image) {
-    <button
-      class="carousel-image-button"
-      type="button"
-      (click)="openZoom()"
-      aria-label="Ampliar imagem do projeto"
-    >
-      <span class="carousel-image-wrapper">
-        <img
-          class="img-fluid"
-          [src]="image.src"
-          [alt]="image.alt"
-        />
-      </span>
-
-      <span class="zoom-hint">
-        <i class="bi bi-zoom-in"></i>
-        Ampliar
-      </span>
+    <button class="carousel-image-button" type="button" (click)="openZoom(zoom)"
+      aria-label="Ampliar imagem do projeto" aria-haspopup="dialog">
+      <img loading="lazy" decoding="async" [src]="image.src" [alt]="image.alt" />
+      <span class="zoom-hint" aria-hidden="true"><i class="bi bi-arrows-angle-expand"></i></span>
     </button>
 
     @if (images.length > 1) {
-      <div class="carousel-controls d-flex justify-content-between align-items-center mt-2">
-        <button
-          class="btn btn-sm btn-outline-secondary"
-          type="button"
-          (click)="previousImage()"
-        >
-          <i class="bi bi-chevron-left"></i>
-          Anterior
+      <div class="carousel-controls">
+        <button class="btn btn-sm btn-outline-secondary" type="button" (click)="previousImage()"
+          aria-label="Imagem anterior">
+          <i class="bi bi-chevron-left" aria-hidden="true"></i>
         </button>
-
-        <span class="small text-secondary">
-          {{ currentIndex + 1 }} / {{ images.length }}
+        <span class="carousel-counter" aria-live="polite" aria-atomic="true">
+          <span class="visually-hidden">Imagem </span>{{ currentIndex + 1 }} / {{ images.length }}
         </span>
-
-        <button
-          class="btn btn-sm btn-outline-secondary"
-          type="button"
-          (click)="nextImage()"
-        >
-          Próxima
-          <i class="bi bi-chevron-right"></i>
+        <button class="btn btn-sm btn-outline-secondary" type="button" (click)="nextImage()"
+          aria-label="Próxima imagem">
+          <i class="bi bi-chevron-right" aria-hidden="true"></i>
         </button>
       </div>
     }
+
+    <dialog #zoom class="portfolio-dialog zoom-dialog"
+      aria-label="Visualização ampliada da imagem do projeto"
+      (click)="$event.target === zoom && zoom.close()" (close)="isZoomOpen = false">
+      @if (isZoomOpen) {
+        <div class="zoom-content">
+          <div class="zoom-header">
+            <span class="carousel-counter" aria-live="polite" aria-atomic="true">
+              <span class="visually-hidden">Imagem </span>{{ currentIndex + 1 }} / {{ images.length }}
+            </span>
+          </div>
+          <img class="zoom-image" [src]="image.src" [alt]="image.alt" />
+
+          @if (images.length > 1) {
+            <div class="zoom-controls">
+              <button class="btn btn-outline-secondary" type="button" (click)="previousImage()">
+                <i class="bi bi-chevron-left" aria-hidden="true"></i> Anterior
+              </button>
+              <button class="btn btn-outline-secondary" type="button" (click)="nextImage()">
+                Próxima <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          }
+        </div>
+      }
+      <button class="btn btn-sm btn-outline-secondary zoom-close" type="button"
+        (click)="zoom.close()" aria-label="Fechar visualização ampliada" autofocus>
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </dialog>
   } @else {
-    <div class="border rounded p-4 text-center text-secondary bg-light">
-      <i class="bi bi-image fs-3 d-block mb-2"></i>
-      Imagens do projeto serão adicionadas em breve.
-    </div>
+    <p class="carousel-placeholder text-secondary">Imagens ainda indisponíveis.</p>
   }
 </div>
-
-@if (isZoomOpen) {
-  @if (currentImage; as zoomImage) {
-    <div
-      class="zoom-backdrop"
-      role="dialog"
-      aria-modal="true"
-      aria-label="Visualização ampliada da imagem do projeto"
-      (click)="closeZoom()"
-    >
-      <div class="zoom-content" (click)="$event.stopPropagation()">
-        <div class="zoom-header">
-          <span class="zoom-counter">
-            {{ currentIndex + 1 }} / {{ images.length }}
-          </span>
-
-          <button
-            class="btn btn-sm btn-outline-secondary"
-            type="button"
-            (click)="closeZoom()"
-            aria-label="Fechar visualização ampliada"
-          >
-            <i class="bi bi-x-lg"></i>
-          </button>
-        </div>
-
-        <div class="zoom-image-frame">
-          <img
-            class="zoom-image"
-            [src]="zoomImage.src"
-            [alt]="zoomImage.alt"
-          />
-        </div>
-
-        @if (images.length > 1) {
-          <div class="zoom-controls" (click)="$event.stopPropagation()">
-            <button
-              class="btn btn-outline-secondary"
-              type="button"
-              (click)="previousImage(); $event.stopPropagation()"
-            >
-              <i class="bi bi-chevron-left"></i>
-              Anterior
-            </button>
-
-            <button
-              class="btn btn-primary"
-              type="button"
-              (click)="nextImage(); $event.stopPropagation()"
-            >
-              Próxima
-              <i class="bi bi-chevron-right"></i>
-            </button>
-          </div>
-        }
-      </div>
-    </div>
-  }
-}

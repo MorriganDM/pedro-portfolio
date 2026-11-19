@@ -1,4 +1,4 @@
-import { Component, HostListener, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ProjectImage } from '../../models/project.model';
 
 @Component({
@@ -39,20 +39,24 @@ export class ProjectCarousel {
       this.currentIndex === this.images.length - 1 ? 0 : this.currentIndex + 1;
   }
 
-  openZoom(): void {
-    if (!this.currentImage) {
+  navigate(event: KeyboardEvent): void {
+    if (this.images.length < 2 || event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) {
       return;
     }
 
-    this.isZoomOpen = true;
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      this.previousImage();
+    } else if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      this.nextImage();
+    }
   }
 
-  closeZoom(): void {
-    this.isZoomOpen = false;
-  }
-
-  @HostListener('document:keydown.escape')
-  handleEscapeKey(): void {
-    this.closeZoom();
+  openZoom(dialog: HTMLDialogElement): void {
+    if (this.currentImage) {
+      dialog.showModal();
+      this.isZoomOpen = true;
+    }
   }
 }
