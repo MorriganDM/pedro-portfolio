@@ -2,6 +2,42 @@ import { Project } from '../models/project.model';
 
 export const PROJECTS: Project[] = [
   {
+    title: 'Ponto Cego',
+    shortDescription:
+      'Blog editorial bilíngue desenvolvido para uma cliente, com Angular, SSR e Sanity CMS.',
+    detailedDescription:
+      'Blog editorial sobre tecnologia, direito e sociedade, desenvolvido para uma cliente e publicado online. O frontend utiliza Angular e TypeScript, com estilos em SCSS e renderização no servidor (SSR) com Angular e Express. A integração com Sanity CMS permite o gerenciamento do conteúdo editorial, com suporte bilíngue em português e inglês.',
+    highlights: [
+      'Desenvolvimento frontend com Angular, TypeScript e SCSS para um projeto de cliente',
+      'Renderização no servidor (SSR) com Angular e Express',
+      'Integração com Sanity CMS para gerenciamento editorial',
+      'Suporte bilíngue em português e inglês',
+      'Publicação na Railway e disponibilização do blog online'
+    ],
+    technologies: ['Angular', 'TypeScript', 'Angular SSR', 'Express', 'SCSS', 'Sanity CMS'],
+    images: [
+      {
+        src: 'images/projects/ponto-cego/01.png',
+        alt: 'Página inicial do Ponto Cego em inglês, com chamada sobre tecnologia e ilustração circular em preto'
+      },
+      {
+        src: 'images/projects/ponto-cego/02.png',
+        alt: 'Página inicial do Ponto Cego em português, com a chamada Tecnologia nunca é neutra e seção de últimos artigos'
+      },
+      {
+        src: 'images/projects/ponto-cego/03.png',
+        alt: 'Listagem de artigos do Ponto Cego em inglês, com busca, filtro por tema, ordenação por data e artigo sobre a Meta nas eleições brasileiras'
+      },
+      {
+        src: 'images/projects/ponto-cego/04.png',
+        alt: 'Artigo do Ponto Cego em inglês na visualização mobile, com título sobre a Meta nas eleições brasileiras, resumo e foto de manifestação'
+      }
+    ],
+    repositoryUrl: 'https://github.com/MorriganDM/ponto-cego',
+    liveUrl: 'https://ponto-cego-production.up.railway.app',
+    isPrivate: true
+  },
+  {
     title: 'Service Orders App',
     shortDescription:
       'Sistema full stack de ordens de serviço com Flutter, FastAPI, PostgreSQL e Docker.',

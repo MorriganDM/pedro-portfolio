@@ -28,12 +28,33 @@ This site showcases recent work, including **Service Orders App**, a full-stack 
 
 <img src="public/images/projects/portfolio/PP5.png" alt="Seção de contato do portfólio" width="900">
 
+## Local environment
+
+Use Node.js **24.22.1** (recorded in `.nvmrc`) and npm **11.13.0** (recorded in
+`package.json`). Angular 21 supports Node.js `^20.19.0`, `^22.12.0` or `^24.0.0`;
+Node.js 26 is outside its supported range. See the
+[Angular compatibility table](https://angular.dev/reference/versions).
+
+Select the Node.js version with your version manager before installing dependencies.
+For nvm-windows, run `nvm install 24.22.1` and `nvm use 24.22.1`.
+Check `node --version` and `npm --version`; if needed, select the npm version with
+`npm install --global npm@11.13.0`.
+
+Install the exact dependency versions from the existing lockfile:
+
+```bash
+npm ci
+```
+
+The application uses standalone Angular components, Bootstrap, and Vitest. No backend
+service or environment variables are required for local development.
+
 ## Development server
 
 To start a local development server, run:
 
 ```bash
-ng serve
+npm start
 ```
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
@@ -57,7 +78,7 @@ ng generate --help
 To build the project run:
 
 ```bash
-ng build
+npm run build
 ```
 
 This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
@@ -67,18 +88,14 @@ This will compile your project and store the build artifacts in the `dist/` dire
 To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
 
 ```bash
-ng test
+npm test
 ```
+
+For a single run without watch mode, use `npm test -- --watch=false`.
 
 ## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+No end-to-end runner or `e2e` target is configured in this repository.
 
 ## Additional Resources
 
