@@ -3,6 +3,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1rem, 2vw, 1.5rem);
 }
+.projects-grid > :first-child { --project-edge: var(--portfolio-line); }
 @media (max-width: 1080px) {
   .projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }

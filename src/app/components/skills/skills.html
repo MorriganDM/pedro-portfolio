@@ -1,41 +1,23 @@
-<section id="skills" class="container section-space section-divider">
+<section id="skills" class="container section-space section-divider" aria-labelledby="skills-title">
   <div class="section-heading">
-    <p class="section-eyebrow mb-2">Stack técnica</p>
-
-    <h2 class="fw-bold">
-      Habilidades
-    </h2>
-
-    <p class="text-secondary">
-      Tecnologias e ferramentas que uso em projetos de software, web e jogos.
-    </p>
+    <h2 id="skills-title">Habilidades</h2>
+    <p class="text-secondary">Tecnologias usadas no trabalho, em projetos para clientes e em estudos.</p>
   </div>
 
-  <div class="row g-4">
+  <div class="skills-grid">
     @for (category of skillCategories; track category.title) {
-      <div class="col-sm-6 col-xl-3">
-        <article class="skill-card h-100">
-          <div class="skill-icon mb-3">
-            <i [class]="category.icon" aria-hidden="true"></i>
-          </div>
-
-          <h3 class="h5 fw-bold mb-2">
-            {{ category.title }}
-          </h3>
-
-          <p class="skill-description">
-            {{ category.description }}
-          </p>
-
-          <div class="d-flex flex-wrap gap-2">
-            @for (skill of category.skills; track skill) {
-              <span class="tech-tag">
-                {{ skill }}
-              </span>
-            }
-          </div>
-        </article>
-      </div>
+      <article class="skill-card">
+        <div class="skill-heading">
+          <span class="skill-icon"><i [class]="category.icon" aria-hidden="true"></i></span>
+          <h3>{{ category.title }}</h3>
+        </div>
+        <p class="skill-description">{{ category.description }}</p>
+        <ul class="skill-tags list-unstyled">
+          @for (skill of category.skills; track skill) {
+            <li class="tech-tag">{{ skill }}</li>
+          }
+        </ul>
+      </article>
     }
   </div>
 </section>

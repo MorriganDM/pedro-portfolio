@@ -1,15 +1,14 @@
-<section class="hero-section container">
+<section class="hero-section container" aria-labelledby="hero-title">
   <div class="hero-layout">
     <div>
-      <p class="section-eyebrow mb-0">Desenvolvedor full stack</p>
-      <h1 class="hero-title">Construo sistemas, interfaces e <span>experiências interativas.</span></h1>
-
+      <p class="section-eyebrow mb-0">Pedro Nascimento</p>
+      <h1 class="hero-title" id="hero-title">Desenvolvedor <span>Full Stack</span></h1>
       <p class="hero-description">
-        Sou Pedro Nascimento, desenvolvedor em início de carreira. Trabalho com C#, .NET,
-        Angular e SQL Server em aplicações web e desktop, e com Unity em projetos interativos.
+        Trabalho no desenvolvimento e na manutenção de aplicações para ERP,
+        com Python e FastAPI no backend, Flutter nas interfaces e integrações via APIs REST.
       </p>
 
-      <div class="d-flex flex-wrap gap-2">
+      <div class="hero-actions">
         <a class="btn btn-primary px-3" href="#projects">
           Ver projetos <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
         </a>
@@ -24,23 +23,22 @@
       </div>
     </div>
 
-    <aside class="hero-card" aria-label="Stack principal">
-      <div class="hero-card-art" aria-hidden="true"><i class="bi bi-code-slash"></i></div>
-      <div class="hero-card-body">
-        <p class="hero-card-label mb-3">Stack principal</p>
-        <div class="d-flex flex-wrap gap-2 mb-3">
-          <span class="tech-tag">C#</span>
-          <span class="tech-tag">.NET</span>
-          <span class="tech-tag">ASP.NET Core</span>
-          <span class="tech-tag">Angular</span>
-          <span class="tech-tag">SQL Server</span>
-          <span class="tech-tag">Unity</span>
-        </div>
-        <div class="hero-card-line">
-          <span class="text-secondary">Foco atual</span>
-          <strong>Backend .NET e Angular</strong>
-        </div>
+    <aside class="hero-card" aria-labelledby="current-employer">
+      <div class="hero-card-top">
+        <span class="hero-card-icon"><i class="bi bi-briefcase" aria-hidden="true"></i></span>
+        <p class="hero-card-label">Experiência atual</p>
       </div>
+      <h2 id="current-employer">PrintPress Soluções</h2>
+      <p class="hero-tenure">Desde <time datetime="2026-06">junho de 2026</time></p>
+      <ul class="hero-stack list-unstyled mb-0" aria-label="Tecnologias no trabalho atual">
+        <li class="tech-tag">Python</li>
+        <li class="tech-tag">FastAPI</li>
+        <li class="tech-tag">Flutter</li>
+        <li class="tech-tag">APIs REST</li>
+      </ul>
+      <a class="hero-card-link" href="#about">
+        Ver trajetória <i class="bi bi-arrow-down-right" aria-hidden="true"></i>
+      </a>
     </aside>
   </div>
 </section>

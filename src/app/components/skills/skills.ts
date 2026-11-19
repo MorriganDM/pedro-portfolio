@@ -16,38 +16,32 @@ interface SkillCategory {
 export class Skills {
   skillCategories: SkillCategory[] = [
     {
-      title: 'Back-end',
+      title: 'Backend, APIs e dados',
       icon: 'bi bi-server',
       description:
-        'Desenvolvimento de APIs, regras de negócio e integração com banco de dados.',
-      skills: ['C#', '.NET', 'ASP.NET Core', 'APIs REST', 'SQL Server']
+        'Python, FastAPI e APIs REST no trabalho com ERP. C#/.NET, ASP.NET Core, PostgreSQL e SQL Server em projetos.',
+      skills: ['Python', 'FastAPI', 'APIs REST', 'C#/.NET', 'ASP.NET Core', 'PostgreSQL', 'SQL Server']
     },
     {
-      title: 'Front-end',
+      title: 'Web e mobile',
       icon: 'bi bi-window-sidebar',
       description:
-        'Criação de interfaces web responsivas, componentizadas e conectadas a APIs.',
-      skills: ['Angular', 'TypeScript', 'HTML', 'CSS', 'Bootstrap']
+        'Desenvolvimento e manutenção com Flutter em ambiente profissional. Angular e TypeScript em projetos web.',
+      skills: ['Flutter', 'Dart', 'Angular', 'TypeScript']
     },
     {
-      title: 'Desktop e jogos',
+      title: 'Jogos',
       icon: 'bi bi-controller',
       description:
-        'Experiência com aplicações desktop e sistemas interativos em Unity.',
-      skills: ['WPF', 'Unity', 'ScriptableObjects', 'Gameplay Systems']
+        'Desenvolvimento freelancer de mecânicas de combate e habilidades passivas para um jogo de cartas.',
+      skills: ['Unity', 'C#', 'ScriptableObjects']
     },
     {
-      title: 'Ferramentas e práticas',
-      icon: 'bi bi-tools',
+      title: 'Infraestrutura e Ferramentas',
+      icon: 'bi bi-terminal',
       description:
-        'Organização de código, versionamento e boas práticas de desenvolvimento.',
-      skills: [
-        'Git',
-        'GitHub',
-        'Visual Studio',
-        'VS Code',
-        'Programação Orientada a Objetos'
-      ]
+        'Uso profissional de servidores Linux e de aplicações e serviços em contêineres com Docker. Versionamento com Git e GitHub.',
+      skills: ['Linux', 'Docker', 'Contêineres', 'Git', 'GitHub']
     }
   ];
 }

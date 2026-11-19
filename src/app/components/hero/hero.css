@@ -1,81 +1,72 @@
 :host {
   display: block;
-  background: radial-gradient(ellipse at 76% 22%, #231a4377, transparent 59%);
+  background: radial-gradient(ellipse at 80% 0%, #251c4266, transparent 65%);
 }
-.hero-section { padding-block: clamp(3.75rem, 7vw, 6.25rem); }
+.hero-section { padding-block: clamp(4rem, 9vw, 8rem) clamp(3.75rem, 8vw, 7rem); }
 .hero-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
-  gap: clamp(2.5rem, 6vw, 6rem);
+  gap: clamp(2rem, 6vw, 6rem);
   align-items: center;
 }
 .hero-title {
-  max-width: 18ch;
-  margin: 1.25rem 0;
-  font-size: clamp(2.85rem, 5.2vw, 4.75rem);
-  font-weight: 670;
-  line-height: 1.02;
-  letter-spacing: -.065em;
-  text-wrap: initial;
+  margin: 1.3rem 0;
+  font-size: clamp(3rem, 6.6vw, 6rem);
+  font-weight: 690;
+  line-height: .93;
+  letter-spacing: -.075em;
 }
-.hero-title span { color: var(--portfolio-primary); }
+.hero-title span { display: block; color: var(--portfolio-primary); }
 .hero-description {
-  max-width: 48ch;
-  margin-bottom: 1.65rem;
+  max-width: 50ch;
+  margin: 1.6rem 0;
   color: var(--portfolio-muted);
-  font-size: clamp(1rem, 1.5vw, 1.14rem);
-  line-height: 1.7;
+  font-size: clamp(1rem, 1.5vw, 1.19rem);
+  line-height: 1.65;
 }
+.hero-actions, .hero-stack { display: flex; flex-wrap: wrap; gap: .5rem; }
 .hero-card {
-  overflow: hidden;
+  padding: clamp(1.2rem, 3vw, 2.25rem);
   border: 1px solid var(--portfolio-line);
+  border-top-color: var(--portfolio-primary);
   border-radius: var(--portfolio-radius);
   background: var(--portfolio-surface);
-  box-shadow: 0 20px 70px #08081070;
+  box-shadow: 0 24px 58px #05050c45;
 }
-.hero-card-art {
-  height: clamp(7rem, 15vw, 12.5rem);
+.hero-card-top { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.35rem; }
+.hero-card-icon {
   display: grid;
   place-items: center;
-  position: relative;
-  overflow: hidden;
-  border-bottom: 1px solid var(--portfolio-border);
-  background:
-    radial-gradient(ellipse at center, #53438855, transparent 70%),
-    linear-gradient(#a891ff15 1px, transparent 1px) center / 24px 24px,
-    linear-gradient(90deg, #a891ff15 1px, transparent 1px) center / 24px 24px,
-    #171526;
-}
-.hero-card-art::before, .hero-card-art::after {
-  content: '';
-  position: absolute;
-  width: 8rem;
-  aspect-ratio: 1;
-  border: 1px solid #a891ff54;
-  border-radius: 50%;
-}
-.hero-card-art::after { width: 11rem; border-color: #a891ff33; }
-.hero-card-art i { color: var(--portfolio-primary); font-size: clamp(2.5rem, 6vw, 4.5rem); }
-.hero-card-body { padding: clamp(1rem, 2.5vw, 1.55rem); }
-.hero-card-label {
-  font: 600 .75rem/1.5 var(--portfolio-mono);
-  text-transform: uppercase;
-  letter-spacing: .12em;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid var(--portfolio-line);
+  border-radius: .55rem;
+  background: var(--portfolio-accent-surface);
   color: var(--portfolio-primary);
 }
-.hero-card-line {
+.hero-card-label, .hero-tenure {
+  font: 600 .75rem/1.55 var(--portfolio-mono);
+  letter-spacing: .07em;
+}
+.hero-card-label { margin: 0; text-transform: uppercase; color: var(--portfolio-primary); }
+.hero-card h2 { margin-bottom: .35rem; font-size: clamp(1.45rem, 2.65vw, 2.2rem); }
+.hero-tenure { color: var(--portfolio-muted); margin-bottom: 1.25rem; }
+.hero-card-link {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  gap: .25rem .8rem;
-  padding-top: .8rem;
+  align-items: center;
+  margin-top: 1.2rem;
+  padding-top: .75rem;
+  min-height: 2.75rem;
   border-top: 1px solid var(--portfolio-border);
-  font-size: .88rem;
+  color: var(--portfolio-primary);
+  text-decoration: none;
+  font-size: .9rem;
+  font-weight: 650;
 }
-@media (max-width: 800px) {
+.hero-card-link:hover { text-decoration: underline; text-underline-offset: .22em; }
+@media (max-width: 760px) {
   .hero-layout { grid-template-columns: minmax(0, 1fr); }
-  .hero-card { max-width: 35rem; }
-}
-@media (max-width: 360px) {
-  .hero-title { font-size: clamp(2.25rem, 12vw, 2.85rem); }
+  .hero-card { max-width: 36rem; }
+  .hero-title { font-size: clamp(2.15rem, 9vw, 4.5rem); }
 }

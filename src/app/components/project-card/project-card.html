@@ -15,12 +15,6 @@
       Ver detalhes <i class="bi bi-arrow-up-right" aria-hidden="true"></i>
     </button>
 
-    @if (project.liveUrl) {
-      <a class="btn btn-sm btn-primary" [href]="project.liveUrl" target="_blank" rel="noopener noreferrer">
-        {{ project.isPrivate ? 'Acessar site' : 'Ver demo' }}
-        <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i>
-      </a>
-    }
   </div>
 
   <dialog #details class="portfolio-dialog" [attr.aria-label]="'Detalhes de ' + project.title"

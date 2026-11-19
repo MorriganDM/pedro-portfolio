@@ -13,6 +13,18 @@
   color: var(--portfolio-text);
 }
 .carousel-image-button { cursor: zoom-in; }
+.project-carousel:has(.carousel-controls) {
+  border: 1px solid var(--portfolio-border);
+  border-radius: .65rem;
+  background: var(--portfolio-raised);
+}
+.project-carousel:has(.carousel-controls) .carousel-image-button {
+  border: 0;
+  border-bottom: 1px solid var(--portfolio-border);
+  border-end-start-radius: 0;
+  border-end-end-radius: 0;
+}
+.carousel-image-button:focus-visible { outline-offset: -3px; }
 .carousel-image-button img {
   position: absolute;
   inset: 0;
@@ -39,9 +51,12 @@
   align-items: center;
   justify-content: space-between;
   gap: .5rem;
-  margin-top: .55rem;
+  padding: .2rem .3rem;
 }
-.carousel-controls button { min-width: 2.75rem; }
+.carousel-controls button {
+  min-width: 2.75rem;
+  --bs-btn-border-color: transparent;
+}
 .carousel-counter { color: var(--portfolio-muted); font: .78rem/1.4 var(--portfolio-mono); }
 .zoom-dialog { --dialog-width: 70rem; }
 .zoom-close {
