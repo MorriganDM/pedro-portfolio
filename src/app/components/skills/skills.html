@@ -1,11 +1,11 @@
 <section id="skills" class="container section-space section-divider" aria-labelledby="skills-title">
   <div class="section-heading">
-    <h2 id="skills-title">Habilidades</h2>
-    <p class="text-secondary">Tecnologias usadas no trabalho, em projetos para clientes e em estudos.</p>
+    <h2 id="skills-title">{{ copy().heading }}</h2>
+    <p class="text-secondary">{{ copy().description }}</p>
   </div>
 
   <div class="skills-grid">
-    @for (category of skillCategories; track category.title) {
+    @for (category of skillCategories(); track category.id) {
       <article class="skill-card">
         <div class="skill-heading">
           <span class="skill-icon"><i [class]="category.icon" aria-hidden="true"></i></span>

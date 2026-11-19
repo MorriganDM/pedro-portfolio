@@ -1,8 +1,8 @@
 import { Project } from '../models/project.model';
 
-export const PROJECTS: Project[] = [
+export const PROJECTS = [
   {
-    title: 'Ponto Cego',
+    title: 'Ponto Cego' as const,
     shortDescription:
       'Blog editorial bilíngue desenvolvido para uma cliente, com Angular, SSR e Sanity CMS.',
     detailedDescription:
@@ -38,7 +38,7 @@ export const PROJECTS: Project[] = [
     isPrivate: true
   },
   {
-    title: 'Service Orders App',
+    title: 'Service Orders App' as const,
     shortDescription:
       'Sistema full stack de ordens de serviço com Flutter, FastAPI, PostgreSQL e Docker.',
     detailedDescription:
@@ -92,7 +92,7 @@ export const PROJECTS: Project[] = [
     repositoryUrl: 'https://github.com/MorriganDM/service-order-app'
   },
   {
-    title: 'Employee Manager System',
+    title: 'Employee Manager System' as const,
     shortDescription:
       'Sistema full-stack para gerenciamento de funcionários, desenvolvido com ASP.NET Core, Angular e SQL Server.',
     detailedDescription:
@@ -130,7 +130,7 @@ export const PROJECTS: Project[] = [
     repositoryUrl: 'https://github.com/MorriganDM/employee-manager-system'
   },
   {
-    title: 'Portfolio Website',
+    title: 'Portfolio Website' as const,
     shortDescription:
       'Site pessoal e portfólio de projetos desenvolvido em Angular.',
     detailedDescription:
@@ -167,7 +167,7 @@ export const PROJECTS: Project[] = [
     repositoryUrl: 'https://github.com/MorriganDM/pedro-portfolio.git'
   },
   {
-    title: 'Currency Converter WPF',
+    title: 'Currency Converter WPF' as const,
     shortDescription:
       'Aplicação desktop em C# e WPF para conversão de moedas utilizando consumo de API externa.',
     detailedDescription:
@@ -192,7 +192,7 @@ export const PROJECTS: Project[] = [
     repositoryUrl: 'https://github.com/MorriganDM/currency-converter-wpf'
   },
   {
-    title: 'Sistema de Combate com Cartas',
+    title: 'Sistema de Combate com Cartas' as const,
     shortDescription:
       'Projeto freelance privado em Unity/C# com sistemas de gameplay, efeitos configuráveis, passivas, UI e ScriptableObjects.',
     detailedDescription:
@@ -236,4 +236,4 @@ export const PROJECTS: Project[] = [
     ],
     isPrivate: true
   }
-];
+] satisfies Project[];

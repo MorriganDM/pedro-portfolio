@@ -4,7 +4,7 @@
       <div>
         <strong>Pedro Nascimento</strong>
         <p class="mb-0">
-          Desenvolvedor C#/.NET, Angular e Unity.
+          {{ copy().role }}
         </p>
       </div>
 
@@ -29,7 +29,7 @@
 
         <a
           href="mailto:pedrovicthorcordeiro@gmail.com"
-          aria-label="E-mail"
+          [attr.aria-label]="email()"
         >
           <i class="bi bi-envelope"></i>
         </a>
@@ -38,7 +38,7 @@
 
     <div class="footer-bottom">
       <small>
-        © 2026 Pedro Nascimento — Portfólio desenvolvido com Angular.
+        © 2026 Pedro Nascimento — {{ copy().credit }}
       </small>
     </div>
   </div>

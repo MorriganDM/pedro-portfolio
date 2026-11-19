@@ -1,0 +1,17 @@
+{
+  "siteUrl": "https://morrigandm.github.io/pedro-portfolio/",
+  "locales": {
+    "pt": {
+      "path": "",
+      "lang": "pt-BR",
+      "title": "Pedro Nascimento | Desenvolvedor Full Stack",
+      "description": "Portfólio de Pedro Nascimento, desenvolvedor full stack. Conheça sua trajetória profissional, habilidades e projetos em software."
+    },
+    "en": {
+      "path": "en/",
+      "lang": "en",
+      "title": "Pedro Nascimento | Full Stack Developer",
+      "description": "Pedro Nascimento's full stack development portfolio. Explore his professional experience, technical skills, and software projects."
+    }
+  }
+}

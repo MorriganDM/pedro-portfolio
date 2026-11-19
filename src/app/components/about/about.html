@@ -1,57 +1,56 @@
 <section id="about" class="container section-space section-divider" aria-labelledby="about-title">
   <div class="section-heading">
-    <p class="section-eyebrow mb-2">Sobre mim</p>
-    <h2 id="about-title">Trajetória profissional</h2>
+    <p class="section-eyebrow mb-2">{{ copy().eyebrow }}</p>
+    <h2 id="about-title">{{ copy().heading }}</h2>
   </div>
 
   <div class="about-layout">
     <ol class="career-list list-unstyled mb-0">
       <li class="career-entry">
-        <p class="career-date">Desde <time datetime="2026-06">junho de 2026</time></p>
-        <h3>Desenvolvedor de Software Júnior</h3>
+        <p class="career-date">{{ hero().since }} <time datetime="2026-06">{{ hero().june2026 }}</time></p>
+        <h3>{{ copy().juniorRole }}</h3>
         <p class="career-place">PrintPress Soluções</p>
         <p>
-          Desenvolvo e mantenho aplicações de ERP com Python, FastAPI e Flutter.
-          Integro APIs REST, analiso fluxos de negócio e de dados, investigo bugs e
-          implemento melhorias em bases de código existentes.
+          {{ copy().erpExperience }}
         </p>
         <p>
-          Trabalho com servidores Linux e com aplicações e serviços executados em
-          ambientes com Docker e contêineres.
+          {{ copy().infrastructure }}
         </p>
       </li>
       <li class="career-entry">
-        <p class="career-date"><time datetime="2026-03">Março</time> a <time datetime="2026-04">abril de 2026</time></p>
-        <h3>Desenvolvedor Unity/C# freelancer</h3>
-        <p class="career-place">Cliente particular</p>
+        <p class="career-date">
+          <time datetime="2026-03">{{ copy().freelanceStart }}</time>
+          {{ copy().dateRangeTo }}
+          <time datetime="2026-04">{{ copy().freelanceEnd }}</time>
+        </p>
+        <h3>{{ copy().freelanceRole }}</h3>
+        <p class="career-place">{{ copy().client }}</p>
         <p>
-          Implementei sistemas de gameplay para um jogo de combate com cartas,
-          incluindo efeitos configuráveis, habilidades passivas e regras de
-          combate com ScriptableObjects.
+          {{ copy().freelanceExperience }}
         </p>
       </li>
     </ol>
 
-    <aside class="about-highlights" aria-label="Formação, idiomas e projetos">
+    <aside class="about-highlights" [attr.aria-label]="copy().highlights">
       <article class="about-highlight">
         <i class="bi bi-mortarboard" aria-hidden="true"></i>
         <div>
-          <h3>Formação</h3>
-          <p>Licenciatura em Computação pela Universidade Federal Fluminense (UFF), concluída em 2025.</p>
+          <h3>{{ copy().education }}</h3>
+          <p>{{ copy().degree }}</p>
         </div>
       </article>
       <article class="about-highlight">
         <i class="bi bi-translate" aria-hidden="true"></i>
         <div>
-          <h3>Idiomas</h3>
-          <p>Português nativo e inglês fluente (C2).</p>
+          <h3>{{ copy().languages }}</h3>
+          <p>{{ copy().proficiency }}</p>
         </div>
       </article>
       <article class="about-highlight">
         <i class="bi bi-code-slash" aria-hidden="true"></i>
         <div>
-          <h3>Projetos e estudos</h3>
-          <p>Aplicações web e APIs com C#/.NET, ASP.NET Core, Angular e TypeScript, além de prática com PostgreSQL e SQL Server.</p>
+          <h3>{{ copy().projects }}</h3>
+          <p>{{ copy().projectExperience }}</p>
         </div>
       </article>
     </aside>

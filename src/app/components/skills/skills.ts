@@ -1,11 +1,5 @@
-import { Component } from '@angular/core';
-
-interface SkillCategory {
-  title: string;
-  icon: string;
-  description: string;
-  skills: string[];
-}
+import { Component, computed, inject } from '@angular/core';
+import { LanguageService } from '../../i18n/language.service';
 
 @Component({
   selector: 'app-skills',
@@ -14,34 +8,35 @@ interface SkillCategory {
   styleUrl: './skills.css'
 })
 export class Skills {
-  skillCategories: SkillCategory[] = [
-    {
-      title: 'Backend, APIs e dados',
-      icon: 'bi bi-server',
-      description:
-        'Python, FastAPI e APIs REST no trabalho com ERP. C#/.NET, ASP.NET Core, PostgreSQL e SQL Server em projetos.',
-      skills: ['Python', 'FastAPI', 'APIs REST', 'C#/.NET', 'ASP.NET Core', 'PostgreSQL', 'SQL Server']
-    },
-    {
-      title: 'Web e mobile',
-      icon: 'bi bi-window-sidebar',
-      description:
-        'Desenvolvimento e manutenção com Flutter em ambiente profissional. Angular e TypeScript em projetos web.',
-      skills: ['Flutter', 'Dart', 'Angular', 'TypeScript']
-    },
-    {
-      title: 'Jogos',
-      icon: 'bi bi-controller',
-      description:
-        'Desenvolvimento freelancer de mecânicas de combate e habilidades passivas para um jogo de cartas.',
-      skills: ['Unity', 'C#', 'ScriptableObjects']
-    },
-    {
-      title: 'Infraestrutura e Ferramentas',
-      icon: 'bi bi-terminal',
-      description:
-        'Uso profissional de servidores Linux e de aplicações e serviços em contêineres com Docker. Versionamento com Git e GitHub.',
-      skills: ['Linux', 'Docker', 'Contêineres', 'Git', 'GitHub']
-    }
-  ];
+  private readonly language = inject(LanguageService);
+  protected readonly copy = computed(() => this.language.copy().skills);
+  protected readonly skillCategories = computed(() => {
+    const copy = this.copy();
+    return [
+      {
+        id: 'backend',
+        ...copy.backend,
+        icon: 'bi bi-server',
+        skills: ['Python', 'FastAPI', this.language.copy().hero.restApis, 'C#/.NET', 'ASP.NET Core', 'PostgreSQL', 'SQL Server']
+      },
+      {
+        id: 'web',
+        ...copy.web,
+        icon: 'bi bi-window-sidebar',
+        skills: ['Flutter', 'Dart', 'Angular', 'TypeScript']
+      },
+      {
+        id: 'games',
+        ...copy.games,
+        icon: 'bi bi-controller',
+        skills: ['Unity', 'C#', 'ScriptableObjects']
+      },
+      {
+        id: 'infrastructure',
+        ...copy.infrastructure,
+        icon: 'bi bi-terminal',
+        skills: ['Linux', 'Docker', copy.containers, 'Git', 'GitHub']
+      }
+    ];
+  });
 }
